@@ -90,10 +90,9 @@ The trained model processes the submitted image and predicts one of the five sup
 
 Following classification, the system provides educational ingredient information and related skincare product recommendations.
 
-![Skin Analysis Results](screenshots/productrecommendations.1.png)
+![Product Recommendations 1](screenshots/productrecommendations.1.png)
 
-![Skin Analysis Results](screenshots/productrecommendations.2.png)
-
+![Product Recommendations 2](screenshots/productrecommendations.2.png)
 ---
 
 ## 🧬 Supported Skin Concern Categories
