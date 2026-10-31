@@ -1,4 +1,4 @@
-# SkinAlyze 🧴
+# SkinAlyze
 ### AI-Powered Skin Analysis & Personalized Skincare Recommendation System
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
