@@ -1,4 +1,4 @@
-# SkinAlyze
+# Skinalyze
 ### AI-Powered Skin Analysis & Personalized Skincare Recommendation System
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
@@ -20,7 +20,7 @@
 
 ## Project Overview
 
-**SkinAlyze** is an AI-powered skin concern classification and personalized skincare recommendation system developed as an academic capstone project.
+**Skinalyze** is an AI-powered skin concern classification and personalized skincare recommendation system developed as an academic capstone project.
 
 The application allows users to upload a skin image, receive an AI-generated prediction of a visible skin concern, and explore relevant skincare ingredients and product recommendations.
 
@@ -38,7 +38,7 @@ Consumers frequently rely on social media recommendations, influencer trends, or
 
 Without sufficient knowledge of ingredients or their individual skin concerns, choosing suitable products can become confusing.
 
-SkinAlyze was developed to explore an accessible solution that:
+Skinalyze was developed to explore an accessible solution that:
 
 - Identifies patterns associated with common skin concerns using computer vision.
 - Helps users understand ingredients commonly associated with those concerns.
@@ -68,11 +68,11 @@ The application is intended as an educational decision-support prototype rather 
 
 The screenshots below demonstrate the user experience from the application homepage through skin analysis and skincare product discovery.
 
-### 1. SkinAlyze Homepage
+### 1. Skinalyze Homepage
 
 The homepage introduces the application's AI-powered skincare analysis functionality.
 
-![SkinAlyze Homepage](screenshots/homepage.png)
+![Skinalyze Homepage](screenshots/homepage.png)
 
 ### 2. Upload Skin Image
 
@@ -131,7 +131,7 @@ These classifications reflect patterns learned from the training dataset and sho
 
 ## System Architecture
 
-SkinAlyze follows a modular client-server architecture with three primary components.
+Skinalyze follows a modular client-server architecture with three primary components.
 
 ### Frontend
 
@@ -181,7 +181,7 @@ The trained MobileNetV2 model classifies skin images, while the recommendation e
 
 ## Dataset Overview
 
-The SkinAlyze dataset contains **9,770 images** across five skin concern categories, used to develop and evaluate the MobileNetV2 image classification model.
+The Skinalyze dataset contains **9,770 images** across five skin concern categories, used to develop and evaluate the MobileNetV2 image classification model.
 
 ### Dataset Distribution
 
@@ -207,7 +207,7 @@ The dataset shows a relatively balanced distribution, although the pores categor
 
 ## Machine Learning Development
 
-SkinAlyze uses a MobileNetV2-based image-classification model as part of its deep learning pipeline.
+Skinalyze uses a MobileNetV2-based image-classification model as part of its deep learning pipeline.
 
 The capstone development process involved collecting and organizing skin images, preparing the dataset, training the classification model, evaluating its performance, and integrating the model with a web application.
 
@@ -247,7 +247,7 @@ The SkinAlyze MobileNetV2 model was evaluated using a validation subset of **1,9
 
 The confusion matrix illustrates the distribution of correct and incorrect predictions across the five categories.
 
-![SkinAlyze Confusion Matrix](reports/figures/confusion_matrix.png)
+![Skinalyze Confusion Matrix](reports/figures/confusion_matrix.png)
 
 Most predictions fall along the diagonal, indicating that the model correctly classified the majority of validation images.
 
@@ -255,7 +255,7 @@ Most predictions fall along the diagonal, indicating that the model correctly cl
 
 The classification report summarizes precision, recall, F1-score, and sample support for each class.
 
-![SkinAlyze Classification Report](reports/figures/classification_report.png)
+![Skinalyze Classification Report](reports/figures/classification_report.png)
 
 ### Class-Wise Performance
 
@@ -403,7 +403,7 @@ reports/figures/
 
 ### Korean Beauty Point — Nepal
 
-SkinAlyze was developed for **CAP 490: Capstone Project** with academic project approval and industry involvement from Korean Beauty Point, Nepal's original K-beauty store and official partner of 10+ K-beauty brands.
+Skinalyze was developed for **CAP 490: Capstone Project** with academic project approval and industry involvement from Korean Beauty Point, Nepal's original K-beauty store and official partner of 10+ K-beauty brands.
 
 The project explores a practical business challenge: connecting consumers with skincare products relevant to their individual concerns while improving awareness of skincare ingredients.
 
@@ -419,7 +419,7 @@ This was an academic research and development collaboration and does not imply c
 
 | Detail | Information |
 |---|---|
-| Project Title | SkinAlyze |
+| Project Title | Skinalyze |
 | Course | CAP 490: Capstone Project |
 | Institution | Presidential Graduate School |
 | University Affiliation | Westcliff University |
@@ -434,7 +434,7 @@ The capstone involved project research, industry approval, system architecture, 
 
 ## Limitations
 
-SkinAlyze is an academic prototype and has several limitations:
+Skinalyze is an academic prototype and has several limitations:
 
 - The classification model supports only five predefined skin concern categories.
 - Predictions depend on image quality, lighting, and the characteristics of the training dataset.
@@ -475,14 +475,14 @@ Presidential Graduate School | Westcliff University
 
 ## Disclaimer
 
-SkinAlyze is developed for academic research, machine learning experimentation, and general skincare education.
+Skinalyze is developed for academic research, machine learning experimentation, and general skincare education.
 
 The application is not a medical device and does not provide professional dermatological diagnoses or medical treatment recommendations. Users should consult qualified healthcare professionals for medical concerns.
 
 ---
 
 <p align="center">
-  <strong>SkinAlyze — AI-Powered Skin Analysis & Smarter Skincare Discovery</strong>
+  <strong>Skinalyze — AI-Powered Skin Analysis & Smarter Skincare Discovery</strong>
 </p>
 
 <p align="center">
