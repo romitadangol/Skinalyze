@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skinalyze | Skin Concern Analysis</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+    <main class="page">
+        <header class="site-header">
+            <h1>Skinalyze</h1>
+
+            <p>
+                AI-Powered Skin Concern Analysis and
+                Curated Skincare Recommendations
+            </p>
+        </header>
+
+        <form
+            id="analysis-form"
+            method="POST"
+            enctype="multipart/form-data"
+            class="upload-card"
+        >
+            <div class="preview-box">
+                <img
+                    id="image-preview"
+                    {% if preview %}src="{{ preview }}"{% endif %}
+                    alt="Selected skin image"
+                    {% if not preview %}hidden{% endif %}
+                >
+
+                <span
+                    id="preview-placeholder"
+                    {% if preview %}hidden{% endif %}
+                >
+                    No Image Selected
+                </span>
+            </div>
+
+            <input
+                id="image"
+                name="image"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+            >
+
+            <div class="upload-actions">
+                <button
+                    type="button"
+                    id="upload-button"
+                    class="button button-soft"
+                >
+                    Upload Photo
+                </button>
+
+                <button
+                    type="submit"
+                    id="analyse-button"
+                    class="button button-primary"
+                >
+                    Analyze Skin
+                </button>
+            </div>
+
+            <p class="upload-help">
+                JPG, PNG or WebP · Maximum upload 8 MB
+            </p>
+
+            <p id="selected-file" class="upload-help"></p>
+
+            <p
+                id="loading-message"
+                class="loading-message"
+                role="status"
+                hidden
+            >
+                Analysing your image. Please wait…
+            </p>
+        </form>
+
+        <p
+            id="client-error"
+            class="error-message"
+            role="alert"
+            hidden
+        ></p>
+
+        {% if error %}
+        <p class="error-message" role="alert">{{ error }}</p>
+        {% endif %}
+
+        {% if result %}
+        <div id="analysis-results">
+            <section class="result-card">
+                <p class="eyebrow">AI DETECTED CONCERN</p>
+
+                <h2>{{ result.prediction }}</h2>
+
+                <p class="confidence">
+                    Model confidence: {{ result.confidence }}%
+                </p>
+
+                <div class="ingredient-strip">
+                    Recommended Ingredient:
+                    {% if ingredients %}
+                        {{ ingredients | join(', ') }}
+                    {% else %}
+                        No ingredient information listed.
+                    {% endif %}
+                </div>
+
+                <p class="ingredient-note">
+                    Educational examples, not instructions to combine
+                    treatments. These names do not confirm the
+                    ingredients in the products below.
+                </p>
+            </section>
+
+            <section class="routine-section">
+                <header class="routine-header">
+                    <p class="eyebrow">KOREAN BEAUTY POINT</p>
+
+                    <h2>
+                        Skincare selections for
+                        {{ result.prediction | lower }}
+                    </h2>
+
+                    <p class="routine-subtitle">
+                        Products selected using the concern tags
+                        in the project catalogue.
+                    </p>
+                </header>
+
+                <p class="catalogue-notice">
+                    This is a rule-based catalogue, not a clinically
+                    validated regimen. It does not assess skin type,
+                    allergies, sensitivity, pregnancy, existing
+                    treatments or medical history.
+                </p>
+
+                {% for step in routine %}
+                <article class="routine-card">
+                    <div class="step-number">{{ loop.index }}</div>
+
+                    <div class="step-content">
+                        <p class="category">{{ step.category }}</p>
+
+                        {% for product in step.products %}
+                        <div class="product-row">
+                            <div class="product-copy">
+                                <h3>{{ product.name }}</h3>
+                                <p>{{ product.description }}</p>
+
+                                {% if product.url %}
+                                <a
+                                    class="product-link"
+                                    href="{{ product.url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View Product
+                                </a>
+                                {% else %}
+                                <p class="small-note">
+                                    Product link unavailable.
+                                </p>
+                                {% endif %}
+                            </div>
+
+                            <div class="product-image-box">
+                                {% if product.image %}
+                                <img
+                                    class="product-image"
+                                    src="{{ product.image }}"
+                                    alt="{{ product.name }}"
+                                    loading="lazy"
+                                >
+                                {% else %}
+                                <span>Product image unavailable</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <h3>No reviewed product listed</h3>
+
+                        <p class="empty-message">
+                            A catalogue match has not yet been added
+                            for this category and concern.
+                        </p>
+                        {% endfor %}
+                    </div>
+                </article>
+                {% endfor %}
+
+                <p class="retailer-note">
+                    View Product opens the supplied Korean Beauty Point
+                    page. Check current ingredients, directions, price
+                    and availability there. No official partnership
+                    is implied.
+                </p>
+
+                <a
+                    class="reset-link"
+                    href="{{ url_for('index') }}"
+                >
+                    Analyze another image
+                </a>
+            </section>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p>
+                Educational research prototype—not a medical diagnosis.
+                Model confidence is not overall accuracy or a guarantee
+                that the prediction is correct.
+            </p>
+
+            <p>
+                The model may misclassify unrelated images or unsupported
+                concerns. Seek qualified advice for persistent or
+                concerning skin changes.
+            </p>
+
+            <p>
+                "Skinalyze" Project By Romita Dangol, 2026.
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        const form = document.getElementById("analysis-form");
+        const imageInput = document.getElementById("image");
+        const uploadButton = document.getElementById("upload-button");
+        const analyseButton = document.getElementById("analyse-button");
+        const preview = document.getElementById("image-preview");
+        const placeholder = document.getElementById("preview-placeholder");
+        const fileLabel = document.getElementById("selected-file");
+        const error = document.getElementById("client-error");
+        const loading = document.getElementById("loading-message");
+
+        let objectUrl = null;
+
+        function showError(message) {
+            error.textContent = message;
+            error.hidden = false;
+        }
+
+        uploadButton.addEventListener("click", () => {
+            imageInput.click();
+        });
+
+        imageInput.addEventListener("change", () => {
+            const file = imageInput.files[0];
+
+            if (!file) return;
+
+            error.hidden = true;
+
+            if (file.size > 8 * 1024 * 1024) {
+                imageInput.value = "";
+                showError("Choose an image smaller than 8 MB.");
+                return;
+            }
+
+            if (objectUrl) {
+                URL.revokeObjectURL(objectUrl);
+            }
+
+            objectUrl = URL.createObjectURL(file);
+            preview.src = objectUrl;
+            preview.hidden = false;
+            placeholder.hidden = true;
+            fileLabel.textContent = file.name;
+
+            const oldResults = document.getElementById("analysis-results");
+
+            if (oldResults) {
+                oldResults.hidden = true;
+            }
+        });
+
+        form.addEventListener("submit", (event) => {
+            error.hidden = true;
+
+            if (!imageInput.files.length) {
+                event.preventDefault();
+
+                showError(
+                    "Please choose an image first. Select the image " +
+                    "again if you are starting another analysis."
+                );
+
+                return;
+            }
+
+            analyseButton.disabled = true;
+            analyseButton.textContent = "Analysing…";
+            loading.hidden = false;
+        });
+
+        document.querySelectorAll(".product-image").forEach((image) => {
+            function showFallback() {
+                if (!image.isConnected) return;
+
+                const fallback = document.createElement("span");
+                fallback.textContent = "Product image unavailable";
+                image.replaceWith(fallback);
+            }
+
+            image.addEventListener(
+                "error",
+                showFallback,
+                { once: true }
+            );
+
+            if (image.complete && image.naturalWidth === 0) {
+                showFallback();
+            }
+        });
+    </script>
+</body>
+</html>

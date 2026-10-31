@@ -1,0 +1,50 @@
+# Python environments
+.venv/
+.venv-*/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Dataset and archives
+Skin v2/
+data/raw/
+data/processed/
+archive/
+*.zip
+
+# Trained model binaries
+*.keras
+*.h5
+*.hdf5
+*.tflite
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# User-uploaded images
+uploads/
+app/uploads/
+app/static/uploads/
+
+# Editor backups
+*.save
+*~
+
+# Temporary catalogue files
+products_backup*.json
+products_unused.json
+products_template*.json
+products.pending.json
+
+# Logs
+*.log
