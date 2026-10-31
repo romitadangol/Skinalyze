@@ -18,7 +18,7 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 **SkinAlyze** is an AI-powered skin concern classification and personalized skincare recommendation system developed as an academic capstone project.
 
@@ -32,7 +32,7 @@ The project was developed with academic approval and industry involvement from *
 
 ---
 
-## 🎯 The Problem
+## The Problem
 
 Consumers frequently rely on social media recommendations, influencer trends, or trial-and-error purchases when choosing skincare products.
 
@@ -49,22 +49,22 @@ The application is intended as an educational decision-support prototype rather 
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 | Feature | Description |
 |---|---|
-| 🔍 AI Skin Analysis | Analyzes uploaded images using a trained image-classification model |
-| 🧠 MobileNetV2 | Uses a convolutional neural network architecture for image classification |
-| 🎯 Five-Class Classification | Predicts acne, blackheads, dark spots, pores, or wrinkles |
-| 📊 Confidence Score | Displays prediction confidence alongside the model output |
-| 🧪 Ingredient Education | Provides relevant skincare ingredient information |
-| 🛍️ Product Recommendations | Connects predicted concerns with skincare product suggestions |
-| 🔗 Product Links | Links recommendations to corresponding e-commerce pages |
-| 💻 Web Application | Provides an interactive browser-based interface |
+| AI Skin Analysis | Analyzes uploaded images using a trained image-classification model |
+| MobileNetV2 | Uses a convolutional neural network architecture for image classification |
+| Five-Class Classification | Predicts acne, blackheads, dark spots, pores, or wrinkles |
+| Confidence Score | Displays prediction confidence alongside the model output |
+| Ingredient Education | Provides relevant skincare ingredient information |
+| Product Recommendations | Connects predicted concerns with skincare product suggestions |
+| Product Links | Links recommendations to corresponding e-commerce pages |
+| Web Application | Provides an interactive browser-based interface |
 
 ---
 
-## 📸 Application Preview
+## Application Preview
 
 The screenshots below demonstrate the user experience from the application homepage through skin analysis and skincare product discovery.
 
@@ -95,7 +95,7 @@ Following classification, the system provides educational ingredient information
 ![Product Recommendations 2](screenshots/productrecommendations.2.png)
 ---
 
-## 🧬 Supported Skin Concern Categories
+## Supported Skin Concern Categories
 
 The image-classification system focuses on five categories:
 
@@ -111,7 +111,7 @@ These classifications reflect patterns learned from the training dataset and sho
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component | Technology |
 |---|---|
@@ -129,7 +129,7 @@ These classifications reflect patterns learned from the training dataset and sho
 
 ---
 
-## ⚙️ System Architecture
+## System Architecture
 
 SkinAlyze follows a modular client-server architecture with three primary components.
 
@@ -179,7 +179,33 @@ The trained MobileNetV2 model classifies skin images, while the recommendation e
 
 ---
 
-## 🧠 Machine Learning Development
+## Dataset Overview
+
+The SkinAlyze dataset contains **9,770 images** across five skin concern categories, used to develop and evaluate the MobileNetV2 image classification model.
+
+### Dataset Distribution
+
+| Skin Concern | Number of Images | Percentage |
+|---|---:|---:|
+| Acne | 2,060 | 21.08% |
+| Blackheads | 1,970 | 20.16% |
+| Dark Spots | 2,126 | 21.76% |
+| Pores | 1,632 | 16.70% |
+| Wrinkles | 1,982 | 20.29% |
+| **Total** | **9,770** | **100%** |
+
+### Data Splitting
+
+The evaluation script uses an **80:20 training-validation split** with a fixed random seed of 42.
+
+- **Training portion:** 7,816 images
+- **Validation portion:** 1,954 images
+
+The dataset shows a relatively balanced distribution, although the pores category contains fewer images than the other classes.
+
+> **Note:** The dataset is excluded from this GitHub repository because of its size. The 80:20 partition describes the evaluation configuration; the training script should be checked to confirm that it uses the same split.
+
+## Machine Learning Development
 
 SkinAlyze uses a MobileNetV2-based image-classification model as part of its deep learning pipeline.
 
@@ -199,7 +225,7 @@ The academic report documents a dataset containing more than **9,000 images** ac
 
 ---
 
-## 📊 Model Evaluation & Performance
+## Model Evaluation & Performance
 
 The SkinAlyze MobileNetV2 model was evaluated using a validation subset of **1,954 images** across five skin concern categories.
 
@@ -253,7 +279,7 @@ Comparatively, acne and dark spots achieved lower F1-scores. The confusion matri
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ~~~text
 Skinalyze/
@@ -296,7 +322,7 @@ The structure highlights the main project files. Trained model binaries, dataset
 
 ---
 
-## 🚀 Installation and Setup
+## Installation and Setup
 
 ### Prerequisites
 
@@ -373,7 +399,7 @@ reports/figures/
 
 ---
 
-## 🤝 Industry Collaboration
+## Industry Collaboration
 
 ### Korean Beauty Point — Nepal
 
@@ -389,7 +415,7 @@ This was an academic research and development collaboration and does not imply c
 
 ---
 
-## 🎓 Academic Background
+## Academic Background
 
 | Detail | Information |
 |---|---|
@@ -406,7 +432,7 @@ The capstone involved project research, industry approval, system architecture, 
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 SkinAlyze is an academic prototype and has several limitations:
 
@@ -419,7 +445,7 @@ SkinAlyze is an academic prototype and has several limitations:
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 Potential future developments include:
 
@@ -434,7 +460,7 @@ Potential future developments include:
 
 ---
 
-## 👩‍💻 Developer
+## Developer
 
 **Romita Dangol**
 
@@ -447,7 +473,7 @@ Presidential Graduate School | Westcliff University
 
 ---
 
-## 📄 Disclaimer
+## Disclaimer
 
 SkinAlyze is developed for academic research, machine learning experimentation, and general skincare education.
 
