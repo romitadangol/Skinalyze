@@ -72,27 +72,27 @@ The screenshots below demonstrate the user experience from the application homep
 
 The homepage introduces the application's AI-powered skincare analysis functionality.
 
-![SkinAlyze Homepage](reports/figures/screenshots/homepage.png)
+![SkinAlyze Homepage](screenshots/homepage.png)
 
 ### 2. Upload Skin Image
 
 Users submit an image showing a visible skin concern through the web interface.
 
-![Skin Image Upload](reports/figures/screenshots/uploadphoto.png)
+![Upload Skin Photo](screenshots/uploadphoto.png)
 
 ### 3. AI Skin Analysis
 
 The trained model processes the submitted image and predicts one of the five supported skin concern categories.
 
-![SkinAlyze Analysis Results](reports/figures/screenshots/analyzeskin.png)
+![Skin Analysis Results](screenshots/analyzeskin.png)
 
 ### 4. Personalized Skincare Recommendations
 
 Following classification, the system provides educational ingredient information and related skincare product recommendations.
 
-![SkinAlyze Product Recommendations](reports/figures/screenshots/productrecommendation1.png)
+![Skin Analysis Results](screenshots/productrecommendations.1.png)
 
-![Additional Product Recommendations](reports/figures/screenshots/productrecommendation2.png)
+![Skin Analysis Results](screenshots/productrecommendations.2.png)
 
 ---
 
