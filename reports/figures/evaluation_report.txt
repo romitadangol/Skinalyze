@@ -1,6 +1,7 @@
 SkinAlyze MobileNetV2 Evaluation
 --------------------------------
 Classes: ['acne', 'blackheads', 'dark spots', 'pores', 'wrinkles']
+Accuracy: 0.9253
 
               precision    recall  f1-score   support
 
